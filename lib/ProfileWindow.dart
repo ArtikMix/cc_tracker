@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:cc_tracker/CClist.dart';
 import 'package:cc_tracker/Profile.dart';
 import 'package:flutter/material.dart';
@@ -36,32 +38,43 @@ class ProfileWindowState extends State<ProfileWindow> {
               ),
               body: ListView(
                 children: <Widget>[
-                  Container(
-                    height: 250,
-                    decoration: const BoxDecoration(color: Colors.blue),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        CircleAvatar(
-                          minRadius: 90,
-                          child: IconButton(
-                            icon: const Icon(
-                              Icons.account_box,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        height: 300,
+                        width: 411.4,
+                        decoration: const BoxDecoration(color: Colors.blue),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            CircleAvatar(
+                              minRadius: 90,
+                              child: IconButton(
+                                icon: const Icon(
+                                  Icons.account_box,
+                                ),
+                                onPressed: () {},
+                                iconSize: 125,
+                              ),
+                              //backgroundImage: ,
                             ),
-                            onPressed: () {},
-                            iconSize: 125,
-                          ),
-                          //backgroundImage: ,
+                            Text(profile.name,
+                                style: const TextStyle(
+                                    color: Colors.white, fontSize: 30)),
+                            Text(
+                              profile.mailAdressChecker(),
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            )
+                          ],
                         ),
-                        //Row()
-                        Text(
-                          profile.name,
-                          style: TextStyle(color: Colors.white, fontSize: 30),
-                        )
-                      ],
-                    ),
-                  ),
+                      ),
+                    ],
+                  )
                 ],
               ))),
     );
