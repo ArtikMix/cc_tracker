@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "964023590272",
+    "project_id": "my-cctracker",
+    "storage_bucket": "my-cctracker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:964023590272:android:6f86cfb9d8b973b30a7565",
+        "android_client_info": {
+          "package_name": "com.example.cc_tracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "964023590272-iaobap02vocbups9di726e4qm9e4ejs0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8psWCeiiQCTTzCwWXE4ozfDaFu_HzA6Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "964023590272-iaobap02vocbups9di726e4qm9e4ejs0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "964023590272-mcet09q5l4vaihd5s1mplpqau86nu1dl.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.cryptoTracker"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
