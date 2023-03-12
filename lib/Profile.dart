@@ -16,15 +16,4 @@ class Profile {
       return 'No mail adress';
     }
   }
-
-  signInWithGoogle() async {
-    GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-
-    GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
-
-    AuthCredential credential = GoogleAuthProvider.credential(
-        accessToken: googleAuth?.accessToken, idToken: googleAuth?.idToken);
-
-    UserCredential userCredential = await FirebaseAuth.instance.signInWithCredential(credential);
-  }
 }

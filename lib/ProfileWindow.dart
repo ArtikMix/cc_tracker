@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:cc_tracker/CClist.dart';
 import 'package:cc_tracker/Profile.dart';
 import 'package:flutter/material.dart';
+import 'Authentication.dart';
 
 class ProfileWindow extends StatefulWidget {
   @override
@@ -56,7 +57,7 @@ class ProfileWindowState extends State<ProfileWindow> {
                                 icon: const Icon(
                                   Icons.account_box,
                                 ),
-                                onPressed: () {},
+                                onPressed: () {Authentication.signInWithGoogle();},
                                 iconSize: 125,
                               ),
                               //backgroundImage: ,
