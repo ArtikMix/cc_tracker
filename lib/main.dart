@@ -1,4 +1,5 @@
 import 'package:cc_tracker/CClist.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(CCtracker());

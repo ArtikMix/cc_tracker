@@ -14,7 +14,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "964023590272-iaobap02vocbups9di726e4qm9e4ejs0.apps.googleusercontent.com",
+          "client_id": "964023590272-20nplqtgnegveu74u5mbhe8adrs6gngp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cc_tracker",
+            "certificate_hash": "eb74bc336a159028c429764c52593ab0853bc3db"
+          }
+        },
+        {
+          "client_id": "964023590272-g65akg1rjmm1nlon3n5mnk5gtvrt8mql.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -27,14 +35,14 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "964023590272-iaobap02vocbups9di726e4qm9e4ejs0.apps.googleusercontent.com",
+              "client_id": "964023590272-g65akg1rjmm1nlon3n5mnk5gtvrt8mql.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "964023590272-mcet09q5l4vaihd5s1mplpqau86nu1dl.apps.googleusercontent.com",
+              "client_id": "964023590272-ggrjb4g9ugtp2f82kvdt3g5c4fih4nkg.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.cryptoTracker"
+                "bundle_id": "com.example.ccTracker"
               }
             }
           ]

@@ -15,9 +15,7 @@ class CClist extends StatefulWidget {
   }
 
   @override
-  initState(){
-    
-  }
+  initState() {}
 }
 
 class CClistState extends State<CClist> {
@@ -43,7 +41,7 @@ class CClistState extends State<CClist> {
   }
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
     _loadCC();
   }
