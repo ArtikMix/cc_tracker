@@ -57,7 +57,7 @@ class ProfileWindowState extends State<ProfileWindow> {
                                 icon: const Icon(
                                   Icons.account_box,
                                 ),
-                                onPressed: () {Authentication.signInWithGoogle();},
+                                onPressed: (){Authentication.signInWithGoogle();},
                                 iconSize: 125,
                               ),
                               //backgroundImage: ,
