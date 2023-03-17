@@ -1,4 +1,5 @@
 //import 'dart:html';
+import 'dart:html';
 import 'dart:ui';
 
 import 'package:cc_tracker/CClist.dart';
@@ -41,11 +42,11 @@ class ProfileWindowState extends State<ProfileWindow> {
               body: ListView(
                 children: <Widget>[
                   Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
-                        height: 300,
+                        height: (MediaQuery.of(context).size.height/2),
                         width: (MediaQuery.of(context).size.width),
                         decoration: const BoxDecoration(color: Colors.blue),
                         child: Column(
@@ -77,49 +78,30 @@ class ProfileWindowState extends State<ProfileWindow> {
                           ],
                         ),
                       ),
-                      Container(
-                        height: 500,
-                        width: (MediaQuery.of(context).size.width),
-                        decoration: BoxDecoration(
-                            color: Color.fromARGB(255, 173, 213, 233)),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            TextButton(
-                                style: TextButton.styleFrom(
-                                    foregroundColor: Colors.blue,
-                                    backgroundColor: Colors.white,
-                                    textStyle: TextStyle(
-                                        fontSize: 30,
-                                        fontWeight: FontWeight.bold),
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(40.0),
-                                        side: BorderSide(
-                                            width: 2.0, color: Colors.white))),
-                                onPressed: () {
-                                },
-                                child: Text('Sign in')),
-                            TextButton(
-                                style: TextButton.styleFrom(
-                                    foregroundColor: Colors.blue,
-                                    backgroundColor: Colors.white,
-                                    textStyle: TextStyle(
-                                        fontSize: 30,
-                                        fontWeight: FontWeight.bold),
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(40.0),
-                                        side: BorderSide(
-                                            width: 2.0, color: Colors.white))),
-                                onPressed: () {
-                                  Authentication.signOutWithGoogle();
-                                },
-                                child: Text('Log out')),
-                          ],
-                        ),
-                      )
+                      TextButton(
+                          style: TextButton.styleFrom(
+                              foregroundColor: Colors.blue,
+                              textStyle: TextStyle(
+                                  fontSize: 30, fontWeight: FontWeight.bold),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(40.0),
+                                  side: BorderSide(
+                                      width: 2.0, color: Colors.blue))),
+                          onPressed: () {},
+                          child: Text('Sign in')),
+                      TextButton(
+                          style: TextButton.styleFrom(
+                              foregroundColor: Colors.blue,
+                              textStyle: TextStyle(
+                                  fontSize: 30, fontWeight: FontWeight.bold),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(40.0),
+                                  side: BorderSide(
+                                      width: 2.0, color: Colors.blue))),
+                          onPressed: () {
+                            Authentication.signOutWithGoogle();
+                          },
+                          child: Text('Log out')),
                     ],
                   )
                 ],
