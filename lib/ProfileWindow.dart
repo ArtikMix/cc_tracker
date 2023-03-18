@@ -15,6 +15,8 @@ class ProfileWindow extends StatefulWidget {
 class ProfileWindowState extends State<ProfileWindow> {
   Profile profile = new Profile(name: 'User');
 
+  String emailStr = Authentication.mailAdressChecker();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -57,13 +59,12 @@ class ProfileWindowState extends State<ProfileWindow> {
                                 Icons.account_box,
                                 size: 125,
                               ),
-                              //backgroundImage: ,
                             ),
                             Text(profile.name,
                                 style: const TextStyle(
                                     color: Colors.white, fontSize: 30)),
                             Text(
-                              profile.mailAdressChecker(),
+                              emailStr,
                               style: TextStyle(
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
@@ -83,8 +84,11 @@ class ProfileWindowState extends State<ProfileWindow> {
                                   borderRadius: BorderRadius.circular(40.0),
                                   side: BorderSide(
                                       width: 2.0, color: Colors.blue))),
-                          onPressed: () {
-                            Authentication.signInWithGoogle();
+                          onPressed: () async {
+                            await Authentication.signInWithGoogle();
+                            setState(() {
+                              emailStr = Authentication.mailAdressChecker();
+                            });
                           },
                           child: Text('Sign in')),
                       SizedBox(
@@ -101,6 +105,9 @@ class ProfileWindowState extends State<ProfileWindow> {
                                       width: 2.0, color: Colors.blue))),
                           onPressed: () {
                             Authentication.signOutWithGoogle();
+                            setState(() {
+                              emailStr = Authentication.mailAdressChecker();
+                            });
                           },
                           child: Text('Log out')),
                     ],

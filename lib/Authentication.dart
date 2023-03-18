@@ -6,6 +6,17 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class Authentication {
+  static String? email;
+  static String? username;
+
+    static String mailAdressChecker() {
+    if (email != null) {
+      return email!;
+    } else {
+      return 'No mail adress';
+    }
+  }
+
   static signInWithGoogle() async {
     final GoogleSignInAccount? googleUser =
         await GoogleSignIn(scopes: <String>["email"]).signIn();
@@ -15,6 +26,9 @@ class Authentication {
 
     final credential = GoogleAuthProvider.credential(
         accessToken: googleAuth.accessToken, idToken: googleAuth.idToken);
+
+    email = googleUser.email;
+    username = googleUser.displayName;
 
     return await FirebaseAuth.instance.signInWithCredential(credential);
   }
