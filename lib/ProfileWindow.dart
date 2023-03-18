@@ -44,7 +44,7 @@ class ProfileWindowState extends State<ProfileWindow> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
-                        height: (MediaQuery.of(context).size.height/2),
+                        height: (MediaQuery.of(context).size.height / 2),
                         width: (MediaQuery.of(context).size.width),
                         decoration: const BoxDecoration(color: Colors.blue),
                         child: Column(
@@ -53,14 +53,9 @@ class ProfileWindowState extends State<ProfileWindow> {
                           children: <Widget>[
                             CircleAvatar(
                               minRadius: 90,
-                              child: IconButton(
-                                icon: const Icon(
-                                  Icons.account_box,
-                                ),
-                                onPressed: () {
-                                  Authentication.signInWithGoogle();
-                                },
-                                iconSize: 125,
+                              child: Icon(
+                                Icons.account_box,
+                                size: 125,
                               ),
                               //backgroundImage: ,
                             ),
@@ -76,6 +71,9 @@ class ProfileWindowState extends State<ProfileWindow> {
                           ],
                         ),
                       ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height / 16,
+                      ),
                       TextButton(
                           style: TextButton.styleFrom(
                               foregroundColor: Colors.blue,
@@ -85,8 +83,13 @@ class ProfileWindowState extends State<ProfileWindow> {
                                   borderRadius: BorderRadius.circular(40.0),
                                   side: BorderSide(
                                       width: 2.0, color: Colors.blue))),
-                          onPressed: () {},
+                          onPressed: () {
+                            Authentication.signInWithGoogle();
+                          },
                           child: Text('Sign in')),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height / 16,
+                      ),
                       TextButton(
                           style: TextButton.styleFrom(
                               foregroundColor: Colors.blue,
