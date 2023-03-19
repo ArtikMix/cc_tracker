@@ -60,7 +60,7 @@ class ProfileWindowState extends State<ProfileWindow> {
                                 size: 125,
                               ),
                             ),
-                            Text(profile.name,
+                            Text(Authentication.userNameChecker(),
                                 style: const TextStyle(
                                     color: Colors.white, fontSize: 30)),
                             Text(

@@ -9,11 +9,19 @@ class Authentication {
   static String? email;
   static String? username;
 
-    static String mailAdressChecker() {
+  static String mailAdressChecker() {
     if (email != null) {
       return email!;
     } else {
       return 'No mail adress';
+    }
+  }
+
+   static String userNameChecker() {
+    if (username != null) {
+      return username!;
+    } else {
+      return 'User';
     }
   }
 
@@ -34,7 +42,9 @@ class Authentication {
   }
 
   static signOutWithGoogle() async {
-    FirebaseAuth.instance.signOut();
+    await FirebaseAuth.instance.signOut();
+    email = null;
+    username = "User";
   }
 
   handleAuthState() {
