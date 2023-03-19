@@ -13,9 +13,8 @@ class ProfileWindow extends StatefulWidget {
 }
 
 class ProfileWindowState extends State<ProfileWindow> {
-  Profile profile = new Profile(name: 'User');
-
   String emailStr = Authentication.mailAdressChecker();
+  String usernameStr = Authentication.userNameChecker();
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +59,7 @@ class ProfileWindowState extends State<ProfileWindow> {
                                 size: 125,
                               ),
                             ),
-                            Text(Authentication.userNameChecker(),
+                            Text(usernameStr,
                                 style: const TextStyle(
                                     color: Colors.white, fontSize: 30)),
                             Text(
@@ -88,6 +87,7 @@ class ProfileWindowState extends State<ProfileWindow> {
                             await Authentication.signInWithGoogle();
                             setState(() {
                               emailStr = Authentication.mailAdressChecker();
+                              usernameStr = Authentication.userNameChecker();
                             });
                           },
                           child: Text('Sign in')),
@@ -103,10 +103,11 @@ class ProfileWindowState extends State<ProfileWindow> {
                                   borderRadius: BorderRadius.circular(40.0),
                                   side: BorderSide(
                                       width: 2.0, color: Colors.blue))),
-                          onPressed: () {
-                            Authentication.signOutWithGoogle();
+                          onPressed: () async {
+                            await Authentication.signOutWithGoogle();
                             setState(() {
                               emailStr = Authentication.mailAdressChecker();
+                              usernameStr = Authentication.userNameChecker();
                             });
                           },
                           child: Text('Log out')),

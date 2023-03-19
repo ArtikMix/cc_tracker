@@ -8,6 +8,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 class Authentication {
   static String? email;
   static String? username;
+  static Image? avatar;
 
   static String mailAdressChecker() {
     if (email != null) {
@@ -25,6 +26,14 @@ class Authentication {
     }
   }
 
+  static avatarChecker(){
+    if(avatar!=null){
+      return avatar!;
+    }else{
+      return const Icon(Icons.account_box);
+    }
+  }
+
   static signInWithGoogle() async {
     final GoogleSignInAccount? googleUser =
         await GoogleSignIn(scopes: <String>["email"]).signIn();
@@ -37,6 +46,7 @@ class Authentication {
 
     email = googleUser.email;
     username = googleUser.displayName;
+    //avatar = Image.network(googleUser.photoUrl);
 
     return await FirebaseAuth.instance.signInWithCredential(credential);
   }
@@ -45,6 +55,7 @@ class Authentication {
     await FirebaseAuth.instance.signOut();
     email = null;
     username = "User";
+    avatar = null;
   }
 
   handleAuthState() {
