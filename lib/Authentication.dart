@@ -30,7 +30,7 @@ class Authentication {
     if(avatar!=null){
       return avatar!;
     }else{
-      return AssetImage('assets/test_pic.png') as Image;
+      return Image.asset('assets/test_pic.png');
     }
   }
 

@@ -54,8 +54,8 @@ class ProfileWindowState extends State<ProfileWindow> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             CircleAvatar(
-                              minRadius: 90,
-                              child: avatarData
+                              minRadius: 60,
+                              child: Image(image: avatarData.image),
                             ),
                             Text(usernameStr,
                                 style: const TextStyle(
