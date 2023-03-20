@@ -15,6 +15,7 @@ class ProfileWindow extends StatefulWidget {
 class ProfileWindowState extends State<ProfileWindow> {
   String emailStr = Authentication.mailAdressChecker();
   String usernameStr = Authentication.userNameChecker();
+  Image avatarData = Authentication.avatarChecker();
 
   @override
   Widget build(BuildContext context) {
@@ -54,10 +55,7 @@ class ProfileWindowState extends State<ProfileWindow> {
                           children: <Widget>[
                             CircleAvatar(
                               minRadius: 90,
-                              child: Icon(
-                                Icons.account_box,
-                                size: 125,
-                              ),
+                              child: avatarData
                             ),
                             Text(usernameStr,
                                 style: const TextStyle(
@@ -88,6 +86,7 @@ class ProfileWindowState extends State<ProfileWindow> {
                             setState(() {
                               emailStr = Authentication.mailAdressChecker();
                               usernameStr = Authentication.userNameChecker();
+                              avatarData = Authentication.avatarChecker();
                             });
                           },
                           child: Text('Sign in')),
@@ -108,6 +107,7 @@ class ProfileWindowState extends State<ProfileWindow> {
                             setState(() {
                               emailStr = Authentication.mailAdressChecker();
                               usernameStr = Authentication.userNameChecker();
+                              avatarData = Authentication.avatarChecker();
                             });
                           },
                           child: Text('Log out')),

@@ -26,11 +26,11 @@ class Authentication {
     }
   }
 
-  static avatarChecker(){
+  static Image avatarChecker(){
     if(avatar!=null){
       return avatar!;
     }else{
-      return const Icon(Icons.account_box);
+      return AssetImage('assets/test_pic.png') as Image;
     }
   }
 
@@ -46,7 +46,7 @@ class Authentication {
 
     email = googleUser.email;
     username = googleUser.displayName;
-    //avatar = Image.network(googleUser.photoUrl);
+    avatar = Image.network(googleUser.photoUrl!);
 
     return await FirebaseAuth.instance.signInWithCredential(credential);
   }
