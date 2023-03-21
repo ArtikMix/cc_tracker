@@ -6,29 +6,23 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class Authentication {
-  static String? email;
-  static String? username;
-  static Image? avatar;
+  static String? _email;
+  static String? _username;
+  static Image? _avatar;
 
-  static String mailAdressChecker() {
-    if (email != null) {
-      return email!;
-    } else {
-      return 'No mail adress';
-    }
-  }
+  static String mailAdressChecker() => _email ?? 'No mail adress';
 
    static String userNameChecker() {
-    if (username != null) {
-      return username!;
+    if (_username != null) {
+      return _username!;
     } else {
       return 'User';
     }
   }
 
   static Image avatarChecker(){
-    if(avatar!=null){
-      return avatar!;
+    if(_avatar!=null){
+      return _avatar!;
     }else{
       return Image.asset('assets/test_pic.png');
     }
@@ -44,29 +38,37 @@ class Authentication {
     final credential = GoogleAuthProvider.credential(
         accessToken: googleAuth.accessToken, idToken: googleAuth.idToken);
 
-    email = googleUser.email;
-    username = googleUser.displayName;
-    avatar = Image.network(googleUser.photoUrl!);
+    fillParameters(googleUser.email, googleUser.displayName, Image.network(googleUser.photoUrl!));
 
     return await FirebaseAuth.instance.signInWithCredential(credential);
   }
 
   static signOutWithGoogle() async {
     await FirebaseAuth.instance.signOut();
-    email = null;
-    username = "User";
-    avatar = null;
+    
+    fillParameters(null, 'User', null);
   }
 
-  handleAuthState() {
-    return StreamBuilder(
-        stream: FirebaseAuth.instance.authStateChanges(),
-        builder: (BuildContext context, snapshot) {
-          if (snapshot.hasData) {
-            return CClist();
-          } else {
-            return ProfileWindow();
-          }
-        });
+  static void fillParameters(String? email, String? username, Image? avatar) {
+    _email = email;
+    _username = username;
+    _avatar = avatar;
   }
+
+  @override
+  void initState() async{
+    
+  }
+
+  // handleAuthState() {
+  //   return StreamBuilder(
+  //       stream: FirebaseAuth.instance.authStateChanges(),
+  //       builder: (BuildContext context, snapshot) {
+  //         if (snapshot.hasData) {
+  //           return CClist();
+  //         } else {
+  //           return ProfileWindow();
+  //         }
+  //       });
+  // }
 }
