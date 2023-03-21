@@ -13,9 +13,9 @@ class ProfileWindow extends StatefulWidget {
 }
 
 class ProfileWindowState extends State<ProfileWindow> {
-  String emailStr = Authentication.mailAdressChecker();
-  String usernameStr = Authentication.userNameChecker();
-  Image avatarData = Authentication.avatarChecker();
+  String _emailStr = Authentication.mailAdressChecker();
+  String _usernameStr = Authentication.userNameChecker();
+  Image _avatarData = Authentication.avatarChecker();
 
   @override
   Widget build(BuildContext context) {
@@ -55,13 +55,13 @@ class ProfileWindowState extends State<ProfileWindow> {
                           children: <Widget>[
                             CircleAvatar(
                               minRadius: 60,
-                              child: Image(image: avatarData.image),
+                              child: Image(image: _avatarData.image)
                             ),
-                            Text(usernameStr,
+                            Text(_usernameStr,
                                 style: const TextStyle(
                                     color: Colors.white, fontSize: 30)),
                             Text(
-                              emailStr,
+                              _emailStr,
                               style: TextStyle(
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
@@ -84,9 +84,9 @@ class ProfileWindowState extends State<ProfileWindow> {
                           onPressed: () async {
                             await Authentication.signInWithGoogle();
                             setState(() {
-                              emailStr = Authentication.mailAdressChecker();
-                              usernameStr = Authentication.userNameChecker();
-                              avatarData = Authentication.avatarChecker();
+                              _emailStr = Authentication.mailAdressChecker();
+                              _usernameStr = Authentication.userNameChecker();
+                              _avatarData = Authentication.avatarChecker();
                             });
                           },
                           child: Text('Sign in')),
@@ -105,9 +105,9 @@ class ProfileWindowState extends State<ProfileWindow> {
                           onPressed: () async {
                             await Authentication.signOutWithGoogle();
                             setState(() {
-                              emailStr = Authentication.mailAdressChecker();
-                              usernameStr = Authentication.userNameChecker();
-                              avatarData = Authentication.avatarChecker();
+                              _emailStr = Authentication.mailAdressChecker();
+                              _usernameStr = Authentication.userNameChecker();
+                              _avatarData = Authentication.avatarChecker();
                             });
                           },
                           child: Text('Log out')),

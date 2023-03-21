@@ -78,11 +78,6 @@ class SideMenuState extends State<SideMenu> {
 
   _aboutMe() async {
     final url = Uri.parse('https://www.linkedin.com/in/artikmix/');
-
-    //var urlLaunching = await canLaunchUrl(url);
-    //if (urlLaunching) {
     await launchUrl(url, mode: LaunchMode.externalApplication);
-    //} else
-    //print('Cant launch URL');
   }
 }
